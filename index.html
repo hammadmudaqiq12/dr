@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کلینیک دندان نوید</title>
+    <meta name="description" content="کلینیک تخصصی دندانپزشکی دکتر شریف ارائه دهنده خدمات لوکس و پیشرفته دندانپزشکی با استفاده از آخرین تکنولوژی‌های روز دنیا">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0E5E6F',
+                        secondary: '#3A8891',
+                        accent: '#FFEFD6',
+                        gold: '#D4AF37',
+                    },
+                    fontFamily: {
+                        sans: ['Vazir', 'sans-serif'],
+                        heading: ['Playfair Display', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Vazir', sans-serif;
+            background-color: #f9f9f9;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(14,94,111,0.9) 0%, rgba(58,136,145,0.8) 100%);
+        }
+        
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .gold-border {
+            border: 1px solid #D4AF37;
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .dropdown-menu {
+                position: static;
+                display: none;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: transparent;
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- نوار بالایی -->
+    <div class="bg-primary text-white py-2 px-4 text-sm">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex space-x-4 space-x-reverse">
+                <a href="tel:+98780949449" class="hover:text-accent transition">
+                    <i class="fas fa-phone ml-1"></i> +93780949449
+                </a>
+                <a href="mailto:info@drsharifdental.com" class="hover:text-accent transition">
+                    <i class="fas fa-envelope ml-1"></i> info@drsharifdental.com
+                </a>
+            </div>
+            <div class="flex space-x-4 space-x-reverse">
+                <a href="#" class="hover:text-accent transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-accent transition"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="hover:text-accent transition"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- نوار منوی اصلی -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- لوگو -->
+                <a href="#" class="flex items-center">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-3">
+                        <i class="fas fa-tooth text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-bold text-xl text-primary">داکتر محمد شریف نوید</span>
+                        <span class="block text-xs text-gray-500">کلینیک تخصصی دندان نوید</span>
+                    </div>
+                </a>
+                
+                <!-- منوی دسکتاپ -->
+                <div class="hidden lg:flex items-center space-x-8 space-x-reverse">
+                    <a href="#" class="text-primary hover:text-secondary font-medium transition">خانه</a>
+                    
+                    <div class="relative dropdown">
+                        <button class="text-primary hover:text-secondary font-medium transition flex items-center focus:outline-none">
+                            خدمات تخصصی
+                            <i class="fas fa-chevron-down text-xs mr-1 mt-1"></i>
+                        </button>
+                        <div class="dropdown-menu absolute top-full right-0 mt-2 w-56 bg-white rounded-lg shadow-xl py-2 z-50 gold-border">
+                            <a href="#services" class="block px-4 py-3 hover:bg-accent transition flex items-center">
+                                <i class="fas fa-baby text-secondary ml-2"></i>
+                                دندان های کودکان
+                            </a>
+                            <a href="#services" class="block px-4 py-3 hover:bg-accent transition flex items-center">
+                                <i class="fas fa-teeth text-secondary ml-2"></i>
+                                ایمپلنت و پروتز
+                            </a>
+                            <a href="#services" class="block px-4 py-3 hover:bg-accent transition flex items-center">
+                                <i class="fas fa-tooth text-secondary ml-2"></i>
+                                زیبایی و ترمیمی
+                            </a>
+                            <a href="#services" class="block px-4 py-3 hover:bg-accent transition flex items-center">
+                                <i class="fas fa-teeth-open text-secondary ml-2"></i>
+                                ارتودنسی پیشرفته
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="relative dropdown">
+                        <button class="text-primary hover:text-secondary font-medium transition flex items-center focus:outline-none">
+                            تکنولوژی‌ها
+                            <i class="fas fa-chevron-down text-xs mr-1 mt-1"></i>
+                        </button>
+                        <div class="dropdown-menu absolute top-full right-0 mt-2 w-56 bg-white rounded-lg shadow-xl py-2 z-50 gold-border">
+                            <a href="#technology" class="block px-4 py-3 hover:bg-accent transition flex items-center">
+                                <i class="fas fa-microscope text-secondary ml-2"></i>
+                                میکروسکوپ دندانپزشکی
+                            </a>
+                            <a href="#technology" class="block px-4 py-3 hover:bg-accent transition flex items-center">
+                                <i class="fas fa-x-ray text-secondary ml-2"></i>
+                                دیجیتال رادیوگرافی
+                            </a>
+                            <a href="#technology" class="block px-4 py-3 hover:bg-accent transition flex items-center">
+                                <i class="fas fa-camera text-secondary ml-2"></i>
+                                اینترااورال کامرا
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <a href="#about" class="text-primary hover:text-secondary font-medium transition">درباره دکتر</a>
+                    <a href="#gallery" class="text-primary hover:text-secondary font-medium transition">گالری</a>
+                    <a href="#contact" class="text-primary hover:text-secondary font-medium transition">تماس با ما</a>
+                    
+                    <a href="#appointment" class="bg-secondary hover:bg-primary text-white px-6 py-2 rounded-full transition shadow-md flex items-center">
+                        <i class="far fa-calendar-check ml-2"></i>
+                        نوبت دهی آنلاین
+                    </a>
+                </div>
+                
+                <!-- دکمه منوی موبایل -->
+                <button class="lg:hidden text-primary text-2xl focus:outline-none" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- منوی موبایل -->
+        <div class="lg:hidden hidden bg-white w-full py-4 px-4 shadow-inner" id="mobile-menu">
+            <a href="#" class="block py-3 border-b border-gray-100 hover:text-secondary transition">خانه</a>
+            
+            <div class="dropdown">
+                <button class="w-full flex justify-between items-center py-3 border-b border-gray-100 focus:outline-none">
+                    <span>خدمات تخصصی</span>
+                    <i class="fas fa-chevron-down transition"></i>
+                </button>
+                <div class="dropdown-menu pl-4 hidden">
+                    <a href="#services" class="block py-2 hover:text-secondary transition">دندانپزشکی کودکان</a>
+                    <a href="#services" class="block py-2 hover:text-secondary transition">ایمپلنت و پروتز</a>
+                    <a href="#services" class="block py-2 hover:text-secondary transition">زیبایی و ترمیمی</a>
+                    <a href="#services" class="block py-2 hover:text-secondary transition">ارتودنسی پیشرفته</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <button class="w-full flex justify-between items-center py-3 border-b border-gray-100 focus:outline-none">
+                    <span>تکنولوژی‌ها</span>
+                    <i class="fas fa-chevron-down transition"></i>
+                </button>
+                <div class="dropdown-menu pl-4 hidden">
+                    <a href="#technology" class="block py-2 hover:text-secondary transition">میکروسکوپ دندانپزشکی</a>
+                    <a href="#technology" class="block py-2 hover:text-secondary transition">دیجیتال رادیوگرافی</a>
+                    <a href="#technology" class="block py-2 hover:text-secondary transition">اینترااورال کامرا</a>
+                </div>
+            </div>
+            
+            <a href="#about" class="block py-3 border-b border-gray-100 hover:text-secondary transition">درباره دکتر</a>
+            <a href="#gallery" class="block py-3 border-b border-gray-100 hover:text-secondary transition">گالری</a>
+            <a href="#contact" class="block py-3 border-b border-gray-100 hover:text-secondary transition">تماس با ما</a>
+            
+            <a href="#appointment" class="block mt-4 bg-secondary text-white text-center py-3 rounded-full shadow-md hover:bg-primary transition">
+                <i class="far fa-calendar-check ml-2"></i>
+                نوبت دهی آنلاین
+            </a>
+        </div>
+    </nav>
+
+    <!-- بخش هیرو -->
+    <section class="hero-gradient text-white">
+        <div class="container mx-auto px-4 py-24 md:py-32 relative overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="کلینیک دندانپزشکی دکتر شریف" 
+                     class="w-full h-full object-cover opacity-20">
+            </div>
+            
+            <div class="relative z-10 max-w-2xl animate-fadeIn">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-heading leading-tight">
+                    تجربه‌ای متفاوت از <span class="text-accent">دندانپزشکی لوکس</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-8 leading-relaxed">
+                    در کلینیک تخصصی دکتر شریف، با بهره‌گیری از آخرین تکنولوژی‌های روز دنیا و کادر مجرب، بهترین خدمات دندانپزشکی را در محیطی آرام و لوکس دریافت کنید.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 sm:space-x-reverse">
+                    <a href="#appointment" class="bg-accent text-primary hover:bg-white px-8 py-3 rounded-full font-bold transition shadow-lg text-center">
+                        دریافت نوبت آنلاین
+                    </a>
+                    <a href="#contact" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary px-8 py-3 rounded-full font-bold transition shadow-lg text-center">
+                        تماس با ما
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش خدمات ویژه -->
+    <section class="py-16 bg-white" id="services">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-secondary font-bold uppercase tracking-wider">خدمات اختصاصی</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 font-heading text-primary">خدمات <span class="text-gold">ویژه</span> کلینیک</h2>
+                <div class="w-20 h-1 bg-gold mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1628075577536-9e69f5f8e9e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                             alt="ایمپلنت دندان" 
+                             class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                            <h3 class="text-xl font-bold">ایمپلنت دندان</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">جایگزینی دائمی دندان‌های از دست رفته با جدیدترین روش‌های ایمپلنتولوژی</p>
+                        <a href="#appointment" class="text-secondary font-medium flex items-center">
+                            بیشتر بخوانید
+                            <i class="fas fa-arrow-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="لمینت سرامیکی" 
+                             class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                            <h3 class="text-xl font-bold">لمینت سرامیکی</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">طراحی لبخند هالیوودی با لمینت‌های سرامیکی نازک و طبیعی</p>
+                        <a href="#appointment" class="text-secondary font-medium flex items-center">
+                            بیشتر بخوانید
+                            <i class="fas fa-arrow-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1588778226694-da9d00b9b7d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                             alt="ارتودنسی نامرئی" 
+                             class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                            <h3 class="text-xl font-bold">ارتودنسی نامرئی</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">اصلاح نامرئی دندان‌ها با جدیدترین سیستم‌های ارتودنسی شفاف</p>
+                        <a href="#appointment" class="text-secondary font-medium flex items-center">
+                            بیشتر بخوانید
+                            <i class="fas fa-arrow-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1588778226694-da9d00b9b7d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                             alt="بی‌حسی بدون درد" 
+                             class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                            <h3 class="text-xl font-bold">بی‌حسی بدون درد</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">تجربه دندانپزشکی بدون درد با سیستم‌های پیشرفته بی‌حسی</p>
+                        <a href="#appointment" class="text-secondary font-medium flex items-center">
+                            بیشتر بخوانید
+                            <i class="fas fa-arrow-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش تکنولوژی‌ها -->
+    <section class="py-16 bg-gray-50" id="technology">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-secondary font-bold uppercase tracking-wider">تجهیزات پیشرفته</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 font-heading text-primary">تکنولوژی‌های <span class="text-gold">منحصر به فرد</span></h2>
+                <div class="w-20 h-1 bg-gold mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative h-64">
+                        <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="میکروسکوپ دندانپزشکی" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-bold">جدید</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-primary">میکروسکوپ دندانپزشکی</h3>
+                        <p class="text-gray-600 mb-4">دقت بی‌نظیر در درمان ریشه با بزرگنمایی ۲۰ برابر و نورپردازی پیشرفته</p>
+                        <a href="#appointment" class="text-secondary font-medium flex items-center">
+                            مشاهده جزئیات
+                            <i class="fas fa-arrow-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative h-64">
+                        <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="اسکنر دیجیتال" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-gold text-white px-3 py-1 rounded-full text-sm font-bold">VIP</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-primary">اسکنر دیجیتال ۳D</h3>
+                        <p class="text-gray-600 mb-4">طراحی دقیق پروتزها و روکش‌ها با اسکن سه‌بعدی پیشرفته</p>
+                        <a href="#appointment" class="text-secondary font-medium flex items-center">
+                            مشاهده جزئیات
+                            <i class="fas fa-arrow-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative h-64">
+                        <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="لیزر دندانپزشکی" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-sm font-bold">پیشرفته</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-primary">لیزر دندانپزشکی</h3>
+                        <p class="text-gray-600 mb-4">درمان بدون درد و خونریزی با لیزرهای پیشرفته دندانپزشکی</p>
+                        <a href="#appointment" class="text-secondary font-medium flex items-center">
+                            مشاهده جزئیات
+                            <i class="fas fa-arrow-left mr-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش درباره دکتر -->
+    <section class="py-16 bg-white" id="about">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-secondary font-bold uppercase tracking-wider">داکتر امراض دندان و جوف دهن</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 font-heading text-primary">درباره <span class="text-gold">داکتر محمد شریف نوید</span></h2>
+                <div class="w-20 h-1 bg-gold mx-auto mt-6"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <img <img src="1.jpg"
+                         alt="داکتر محمد شریف نوید" 
+                         class="w-full rounded-xl shadow-xl">
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold mb-6 text-primary font-heading">بیوگرافی</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        دکتر محمد شریف، متخصص دندانپزشکی ترمیمی و زیبایی، فارغ‌التحصیل از دانشگاه علوم پزشکی تهران با رتبه ممتاز می‌باشند. ایشان با بیش از ۱۵ سال سابقه تخصصی در زمینه دندانپزشکی زیبایی و ایمپلنت، عضو انجمن دندانپزشکان زیبایی ایران و اروپا هستند.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        دکتر شریف دوره‌های تخصصی متعددی را در کشورهای آلمان، سوئیس و آمریکا گذرانده‌اند و همواره از جدیدترین تکنیک‌ها و تکنولوژی‌های روز دنیا در زمینه دندانپزشکی استفاده می‌کنند.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-accent text-primary rounded-full p-3 mr-4">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">تحصیلات</h4>
+                                <p class="text-gray-600">در دانشګاه رازی کابل افغانستان</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-accent text-primary rounded-full p-3 mr-4">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">تخصص</h4>
+                                <p class="text-gray-600">ترمیمی و زیبایی - ایمپلنتولوژی</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-accent text-primary rounded-full p-3 mr-4">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">زبان‌ها</h4>
+                                <p class="text-gray-600">فارسی، انگلیسی، آلمانی</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-accent text-primary rounded-full p-3 mr-4">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">سابقه کار</h4>
+                                <p class="text-gray-600">۱۵ سال تجربه تخصصی</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#appointment" class="inline-block bg-secondary hover:bg-primary text-white px-8 py-3 rounded-full font-bold transition shadow-lg">
+                        دریافت نوبت مشاوره
+                        <i class="fas fa-arrow-left mr-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش گالری -->
+    <section class="py-16 bg-gray-50" id="gallery">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-secondary font-bold uppercase tracking-wider">نمونه کارها</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 font-heading text-primary">گالری <span class="text-gold">تصاویر</span></h2>
+                <div class="w-20 h-1 bg-gold mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="#" class="gallery-item relative block group overflow-hidden rounded-xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1628075577536-9e69f5f8e9e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="نمونه کار ایمپلنت" 
+                         class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-white">
+                            <h3 class="text-xl font-bold">ایمپلنت فول ماش</h3>
+                            <p class="mt-2">کاشت دندان با کیفیت عالی</p>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#" class="gallery-item relative block group overflow-hidden rounded-xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="نمونه کار لمینت" 
+                         class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-white">
+                            <h3 class="text-xl font-bold">لمینت سرامیکی</h3>
+                            <p class="mt-2">لبخند هالیوودی</p>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#" class="gallery-item relative block group overflow-hidden rounded-xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1588778226694-da9d00b9b7d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="نمونه کار ارتودنسی" 
+                         class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-white">
+                            <h3 class="text-xl font-bold">ارتودنسی نامرئی</h3>
+                            <p class="mt-2">اصلاح طرح لبخند</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-primary hover:bg-secondary text-white px-8 py-3 rounded-full font-bold transition shadow-lg">
+                    مشاهده تمام نمونه کارها
+                    <i class="fas fa-arrow-left mr-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش تماس -->
+    <section class="py-16 bg-primary text-white" id="contact">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-accent font-bold uppercase tracking-wider">ارتباط با ما</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 font-heading">رزرو <span class="text-gold">نوبت</span> و مشاوره</h2>
+                <div class="w-20 h-1 bg-gold mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 font-heading">اطلاعات تماس</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-secondary rounded-full p-3 mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">آدرس کلینیک</h4>
+                                <p class="text-gray-300">مرکز ولایت لوګر سرک پوهنتون پهلوی معاینه خانه داکتر مهرابی</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-secondary rounded-full p-3 mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">تلفن تماس</h4>
+                                <p class="text-gray-300">093780949449</p>
+                                <p class="text-gray-300">۰۹۳۷۸۰۹۴۹۴۴۹</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-secondary rounded-full p-3 mr-4">
+                                <i class="far fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">ساعات کاری</h4>
+                                <p class="text-gray-300">شنبه تا چهارشنبه: ۹ صبح تا ۸ شب</p>
+                                <p class="text-gray-300">پنجشنبه: ۹ صبح تا ۴ بعدازظهر</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 flex space-x-4 space-x-reverse">
+                        <a href="#" class="bg-white text-primary hover:bg-accent hover:text-white w-12 h-12 rounded-full flex items-center justify-center transition shadow-lg">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="bg-white text-primary hover:bg-accent hover:text-white w-12 h-12 rounded-full flex items-center justify-center transition shadow-lg">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                        <a href="#" class="bg-white text-primary hover:bg-accent hover:text-white w-12 h-12 rounded-full flex items-center justify-center transition shadow-lg">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-xl p-8 text-gray-800" id="appointment">
+                    <h3 class="text-2xl font-bold mb-6 font-heading text-primary">فرم درخواست نوبت</h3>
+                    
+                    <form id="appointment-form">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block mb-2 font-medium">نام کامل</label>
+                                <input type="text" id="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block mb-2 font-medium">شماره تماس</label>
+                                <input type="tel" id="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent">
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label for="service" class="block mb-2 font-medium">خدمات درخواستی</label>
+                                <select id="service" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent">
+                                    <option value="">-- انتخاب کنید --</option>
+                                    <option value="implant">ایمپلنت دندان</option>
+                                    <option value="laminate">لمینت سرامیکی</option>
+                                    <option value="orthodontics">ارتودنسی نامرئی</option>
+                                    <option value="cosmetic">زیبایی دندان</option>
+                                    <option value="other">سایر خدمات</option>
+                                </select>
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label for="message" class="block mb-2 font-medium">توضیحات (اختیاری)</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"></textarea>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="mt-6 w-full bg-secondary hover:bg-primary text-white py-3 rounded-full font-bold transition shadow-lg">
+                            ارسال درخواست
+                        </button>
+                    </form>
+                    
+                    <div id="form-success" class="hidden mt-4 p-4 bg-green-100 text-green-800 rounded-lg">
+                        درخواست شما با موفقیت ثبت شد. همکاران ما به زودی با شما تماس خواهند گرفت.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- فوتر -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-3">
+                            <i class="fas fa-tooth text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="font-bold text-xl">داکتر محمد شریف نوید</span>
+                            <span class="block text-xs text-gray-400">کلینیک تخصصی دندان نوید</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-400 mb-6">ارائه کننده خدمات تخصصی و لوکس دندانپزشکی با استفاده از آخرین تکنولوژی‌های روز دنیا در محیطی آرام و مجهز</p>
+                    
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6 font-heading">لینک‌های سریع</h3>
+                    
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left text-xs ml-2"></i>
+                            خانه
+                        </a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left text-xs ml-2"></i>
+                            خدمات تخصصی
+                        </a></li>
+                        <li><a href="#technology" class="text-gray-400 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left text-xs ml-2"></i>
+                            تکنولوژی‌ها
+                        </a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left text-xs ml-2"></i>
+                            درباره دکتر
+                        </a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left text-xs ml-2"></i>
+                            گالری تصاویر
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6 font-heading">خدمات ما</h3>
+                    
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left text-xs ml-2"></i>
+                            ایمپلنت دندان
+                        </a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left text-xs ml-2"></i>
+                            لمینت سرامیکی
+                        </a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left text-xs ml-2"></i>
+                            ارتودنسی نامرئی
+                        </a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left text-xs ml-2"></i>
+                            زیبایی دندان
+                        </a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left text-xs ml-2"></i>
+                           بخش اطفال 
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6 font-heading">خبرنامه</h3>
+                    
+                    <p class="text-gray-400 mb-4">برای دریافت آخرین اخبار و تخفیف‌های ویژه، ایمیل خود را ثبت کنید</p>
+                    
+                    <form class="flex">
+                        <input type="email" placeholder="آدرس ایمیل" class="px-4 py-3 rounded-r-lg focus:outline-none w-full text-gray-800">
+                        <button type="submit" class="bg-secondary hover:bg-primary text-white px-4 rounded-l-lg transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold mb-3">دریافت اپلیکیشن</h4>
+                        <div class="flex space-x-3 space-x-reverse">
+                            <a href="#" class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg flex items-center transition">
+                                <i class="fab fa-google-play text-xl ml-2"></i>
+                                <span class="text-xs">
+                                    <span class="block">دانلود از</span>
+                                    <span class="font-bold">Google Play</span>
+                                </span>
+                            </a>
+                            <a href="#" class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg flex items-center transition">
+                                <i class="fab fa-apple text-xl ml-2"></i>
+                                <span class="text-xs">
+                                    <span class="block">دانلود از</span>
+                                    <span class="font-bold">App Store</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">© تهیه و ترتیب حماد مدقق</p>
+                
+                <div class="flex space-x-6 space-x-reverse mt-4 md:mt-0">
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition">حریم خصوصی</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition">قوانین و مقررات</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition">سوالات متداول</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // مدیریت منوی موبایل
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            
+            // تغییر آیکون منو
+            const icon = this.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+        
+        // مدیریت زیرمنوها در موبایل
+        document.querySelectorAll('#mobile-menu .dropdown').forEach(dropdown => {
+            const button = dropdown.querySelector('button');
+            const icon = dropdown.querySelector('i');
+            const menu = dropdown.querySelector('.dropdown-menu');
+            
+            button.addEventListener('click', function() {
+                menu.classList.toggle('hidden');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+        
+        // مدیریت فرم نوبت دهی
+        const appointmentForm = document.getElementById('appointment-form');
+        const formSuccess = document.getElementById('form-success');
+        
+        if (appointmentForm) {
+            appointmentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // شبیه‌سازی ارسال فرم
+                setTimeout(() => {
+                    formSuccess.classList.remove('hidden');
+                    appointmentForm.reset();
+                    
+                    // مخفی کردن پیام موفقیت بعد از 5 ثانیه
+                    setTimeout(() => {
+                        formSuccess.classList.add('hidden');
+                    }, 5000);
+                }, 1000);
+            });
+        }
+        
+        // اسکرول نرم برای لینک‌ها
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                // جلوگیری از رفتار پیش‌فرض برای لینک‌هایی که فقط # دارند
+                if (this.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    return;
+                }
+                
+                // بستن منوی موبایل در صورت باز بودن
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.querySelector('i').classList.remove('fa-times');
+                    mobileMenuButton.querySelector('i').classList.add('fa-bars');
+                }
+                
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // تغییر استایل منو هنگام اسکرول
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
